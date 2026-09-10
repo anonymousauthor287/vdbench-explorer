@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A sample overview of VDBench, with topic timelines, selected images, and ground truth annotations.">
+  <meta name="theme-color" content="#e6e1d8">
+  <title>VDBench Explorer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='23' font-size='22' text-anchor='middle' fill='%239e3b23'%3E%E2%97%88%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#stage">Skip to timeline</a>
+  <aside class="dataset-banner" aria-label="About this overview">
+    <p><span class="banner-dot" aria-hidden="true"></span><strong>VDBench dataset</strong><span class="bar-note">sample overview — not the full dataset</span></p>
+    <a href="https://anonymous-hf.com/a/yx8guz54j8ct/" target="_blank" rel="noopener noreferrer">Explore the full dataset <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+  </aside>
+  <header class="bar">
+    <a class="brand" href="./" aria-label="VDBench Explorer home"><span class="brand-mark" aria-hidden="true">◈</span><span class="brand-name">VDBENCH<span class="brand-sub">EXPLORER</span></span></a>
+    <div class="bar-right"><span class="bar-count" id="top-count"></span><button type="button" class="topics-toggle text-button" id="topics-toggle" aria-expanded="false" aria-controls="topic-index"><span aria-hidden="true">☰</span> Topics</button></div>
+  </header>
+  <div class="app" id="app">
+    <div class="index-backdrop" id="index-backdrop" hidden></div>
+    <aside class="index" id="topic-index" aria-label="Topic browser">
+      <div class="index-intro"><div class="index-title-row"><h2>Topics</h2><button type="button" class="icon-button index-close" id="index-close" aria-label="Close topic browser">×</button></div></div>
+      <div class="index-search"><span class="search-icon" aria-hidden="true"></span><label class="sr-only" for="search">Search topics</label><input id="search" type="search" placeholder="Search topics…" autocomplete="off"><kbd aria-hidden="true">/</kbd><button class="search-clear" id="search-clear" type="button" aria-label="Clear search" hidden>×</button></div>
+      <div class="list-head" id="list-head" role="status" aria-live="polite">Loading topics…</div>
+      <nav id="entry-list" class="entry-list" aria-label="Topics"></nav>
+    </aside>
+    <main class="stage" id="stage" tabindex="-1" aria-label="Topic timeline"><div class="loading-state" role="status"><span class="loading-mark" aria-hidden="true">◈</span><p>Opening the collection…</p></div></main>
+    <aside class="side-wrap collapsed" id="side-wrap">
+      <button type="button" class="side-toggle" id="side-toggle" aria-expanded="false" aria-controls="side"><span class="side-toggle-icon" aria-hidden="true">‹</span><span class="side-toggle-label">Sources</span></button>
+      <div class="side" id="side" aria-label="Sources"></div>
+    </aside>
+  </div>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-header"><div><span class="eyebrow">Sample photograph</span><h2 id="lightbox-title"></h2></div><button type="button" class="icon-button" id="lightbox-close" aria-label="Close image viewer" autofocus>×</button></div>
+    <div class="lightbox-inner"><div class="lightbox-image-wrap"><img id="lightbox-img" alt=""><p class="image-error" id="lightbox-error" hidden>This photograph could not be loaded.</p></div><div class="lightbox-gt" id="lightbox-gt"></div></div>
+    <div class="lightbox-footer"><button type="button" class="text-button" id="image-prev"><span aria-hidden="true">←</span> Previous<span class="sr-only"> photograph</span></button><span class="lightbox-hint">← → to browse <span>·</span> Esc to close</span><button type="button" class="text-button" id="image-next">Next<span class="sr-only"> photograph</span> <span aria-hidden="true">→</span></button></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">Enable JavaScript to browse this overview, or <a href="https://anonymous-hf.com/a/yx8guz54j8ct/">visit the full dataset</a>.</div></noscript>
+</body>
+</html>

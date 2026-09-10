@@ -1,0 +1,14 @@
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+__pycache__/
+*.log
+# Local tool state and credentials
+.codex/
+.env
+.env.*
+# Packaged downloads
+dist/
